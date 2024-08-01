@@ -10,6 +10,11 @@
   <div class="divstruct">
     <textarea name="Email Headers" id="emailheader" rows="20" cols="120"></textarea>
     <button class="submitbutton">Submit</button>
+    <table class="summary">
+      <tr><th>Summary</th></tr>
+      <tr><th>From:</th><th class="summary-from-address"></th><th class="summary-from-name"></th></tr>
+      <tr><th>To:</th><th class="summary-to-address"></th><th class="summary-to-name"></th></tr>
+    </table>
     <table class="table">
       <tr>
         <th>Hop</th>
@@ -23,6 +28,6 @@
     </table>
   </div>
   
-  <script src="app.js"></script>
+  <script src="app.js" type="module"></script>
 </body>
 </html>

@@ -2,8 +2,15 @@
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  grid-row: 3;
+  grid-row: 4;
   position: relative;
+}
+.summary {
+  width: 100%;
+  position: relative;
+  border-collapse: collapse;
+  grid-row: 3;
+  font-family: arial, sans-serif;
 }
 body {
   margin: 0;
@@ -29,6 +36,6 @@ td, th {
 .divstruct {
   position: relative;
   display: grid;
-  grid-template-rows: 3;
+  grid-template-rows: 4;
   grid-template-columns: 1;
 }
