@@ -1,0 +1,63 @@
+Received:from VI0PR05MB11114.eurprd05.prod.outlook.com (2603:10a6:800:207::22) by VI1PR05MB5981.eurprd05.prod.outlook.com with HTTPS; Tue, 30 Jul 2024 03:59:43 +0000
+Received:from DU2PR04CA0060.eurprd04.prod.outlook.com (2603:10a6:10:234::35) by VI0PR05MB11114.eurprd05.prod.outlook.com (2603:10a6:800:207::22) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7807.28; Tue, 30 Jul 2024 03:59:35 +0000
+Received:from DU2PEPF00028D00.eurprd03.prod.outlook.com (2603:10a6:10:234:cafe::43) by DU2PR04CA0060.outlook.office365.com (2603:10a6:10:234::35) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.34 via Frontend Transport; Tue, 30 Jul 2024 03:59:35 +0000
+Authentication-Results:spf=softfail (sender IP is 185.183.28.235) smtp.mailfrom=gmail.com; dkim=fail (body hash did not verify) header.d=gmail.com;dmarc=fail action=none header.from=gmail.com;compauth=none reason=405
+Received-SPF:SoftFail (protection.outlook.com: domain of transitioning gmail.com discourages use of 185.183.28.235 as permitted sender)
+Received:from mx08-00377f01.pphosted.com (185.183.28.235) by DU2PEPF00028D00.mail.protection.outlook.com (10.167.242.184) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7784.11 via Frontend Transport; Tue, 30 Jul 2024 03:59:34 +0000
+Received:from pps.filterd (m0410745.ppops.net [127.0.0.1])	by mx07-00377f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 46U1nTp6007259	for <troy.bannam@lh.com.au>; Tue, 30 Jul 2024 05:59:34 +0200
+Authentication-Results-Original:ppops.net;	spf=pass smtp.mailfrom=michealben796@gmail.com;	dkim=pass header.s=20230601 header.d=gmail.com;	dmarc=pass header.from=gmail.com
+Received:from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])	by mx07-00377f01.pphosted.com (PPS) with ESMTPS id 40n9erjddq-1	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)	for <troy.bannam@lh.com.au>; Tue, 30 Jul 2024 05:59:34 +0200 (MEST)
+Received:by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-a7a9a7af0d0so551856166b.3        for <troy.bannam@lh.com.au>; Mon, 29 Jul 2024 20:59:34 -0700 (PDT)
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;        d=gmail.com; s=20230601; t=1722311973; x=1722916773; darn=lh.com.au;        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject         :date:message-id:reply-to;        bh=jV60Am+CvmhRR5k0N24O3VceLxojI8M2gTvunezHyUU=;        b=NPFHW+EB/pMuNH8MjKf2yS9dmTjQ6I2D1Sa/gUSBY7MSAjbfYu7NH8VdX9FD9LW/cW         TFnfdtrPb//KwNvTqNAeD2Ppv8dv6w+vE5srZTycfuPWNRGeGh1IWrkzPCFDSzLrRtyd         IeJH/zA625nHKCAYCHwmlvh4jQFQNboVyRv7bJ0KQOWuTp2cRrcuG2jPaKKMdUafaiyg         hIKws6Dh+VgjD+xYRn17p75m5yzcp1l6Qqxc2GKhcfgSkhCMsQy+xPj96MEm9nVDYr/7         F/x2gAAoba5Uus2Lw39M4f/8Yc8uRfNA7WZ3kxMrP3TTyo4Gd6ZW4gzNvwGlc9Z4FQde         12/A==
+X-Google-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;        d=1e100.net; s=20230601; t=1722311973; x=1722916773;        h=to:subject:message-id:date:from:mime-version:x-gm-message-state         :from:to:cc:subject:date:message-id:reply-to;        bh=jV60Am+CvmhRR5k0N24O3VceLxojI8M2gTvunezHyUU=;        b=HbJ5tV+d2j98nigHnm12IP10tHHvWKOO28vjV2G/GgoRrpl7Dr5rh25VB9O4Ewirnu         NtWDzhnJStHxffDqJRPwIVAgW9XrnCLw94FRQTaKDIwYSde6tW+IxAq1Ay/PQlOiMOsL         NzToIxJJAjJ+M9+EOcLaIgr1ykxvVpFyVAhy/I3SX2C+HqQ3iH/HmxNEX1d/UssCdmVa         ML858TBx4Qysf45DVyje7Vf0Jtd9wkoptg05BkkAp6Z7mLQuFFNxrIc+FcC+hJp1pTig         T3GqQfZMsX2gmOaQ8mJz7/zqrtVow4LO2ocJLjtwLtUOqEuUR1g473mM1niUIkS0H635         dP8A==
+X-Forwarded-Encrypted:i=1; AJvYcCWQO2bwjD4L4ZOymsS9E1H3LvBglokv8niJ4Y05hN+G/LKZxVFDYtFSHmtMwJ8ws2AYG5CEAeTRDp3oLIG+edFVmEC7qeI=
+X-Gm-Message-State:AOJu0YxCGn7bAeJh9xw3hymB7qGhPZ/hPlkoXnhicybK5Pei0irdFPkI	KQchrYokjhsqcB9E339xix8x3r4/xq4Ed3OOg2RY1YwjYl9aslI+X6UUffTlaQVOnq4TLV6DmTS	ksKOLtLdhISagOKL6UT3YqHOIsp4=
+X-Google-Smtp-Source:AGHT+IGH0PSuAG0B/WhGMcLP9nHYglY4YRcVYub7o4JTY01sTo9tQKZHzLZeBqkvdu/Qq2g8HIY3jeEaEziYqw8X8uE=
+X-Received:by 2002:a17:907:3207:b0:a7d:3a85:7a3e with SMTP id a640c23a62f3a-a7d4015fe2cmr598246766b.59.1722311973320; Mon, 29 Jul 2024 20:59:33 -0700 (PDT)
+MIME-Version:1.0
+From:micheal ben <michealben796@gmail.com>
+Date:Mon, 29 Jul 2024 21:00:05 -0700
+Message-ID:<CAAjX8=XLVb7W-zafP_u5ZT0khuMBMVrf9YCNj7i_Tg2+3WML+g@mail.gmail.com>
+Subject:order
+To:michael@awesimelectrical.com.au
+Content-Type:multipart/alternative; boundary="0000000000005cbe9a061e6f0199"
+X-CLX-Response:1TFkXGBkaEQpMehcZExIRCllEF2RLa2F7UnJsTVxwEQpYWBdjQkNsZ3JSfWR JYhEKeE4XY1Nja3sTWH4aX14RCnlMF2sScl9gWmFvWB9bEQpDSBceHREKQ1kXBxwYEQpDSRcaBB oaGhEKWU0XZ2ZyEQpZSRcacRoQGncGGBsacRsYHBAadwYYGgYaEQpZXhdsbHkRCklGF1lFRE9aS 1hMWHVCRVleT04RCklHF3hPTREKQ04XfxlzeU5uXlIYZHVcEn5cGlB7UnpcXWh7bn5aGWRfb0UR ClhcFx8EGgQZHRgFGxoEEhoEGxkeBBkeEBseGh8aEQpeWRdOGU1EaBEKTVwXBxscGhEKTFoXaW9 pTV1vEQpNThdpaxEKTEYXb2tra2trEQpCTxdlflxZW1tHY1NhbBEKQ1oXGBoTBBIfBBgbEgQeHx EKQl4XGxEKQlwXGxEKXk4XGxEKQksXY1Nja3sTWH4aX14RCkJJF2NTY2t7E1h+Gl9eEQpCRRdvc 359HRleSR5tTREKQk4XY1Nja3sTWH4aX14RCkJMF2NCQ2xnclJ9ZEliEQpCbBdlGAVTUlNLTUlk YBEKQkAXaFh5T0RfXEJEYhoRCkJYF29gR10dYlB5WGhkEQpNXhcbEQpaWBcYEQp5QxdoWHlPRF9 cQkRiGhEKWUsXGxofHRMRCnBoF2t+RnlmW1phQWJMEBoRCnBoF2JMfmVIcFxfQE5TEBoRCnBoF2 saUBMcHWJJchJYEBoRCnBoF2dMfXNoZ0hPS24SEBoRCnBsF2JMQHphQH1tfU9OEBkaEQptfhcbE QpYTRdLESA=
+X-Proofpoint-ORIG-GUID:U3YSdDtx2N_v8Tv0zQxPvwBQDTp3NuEo
+X-CLX-Shades:MLX
+X-Proofpoint-GUID:U3YSdDtx2N_v8Tv0zQxPvwBQDTp3NuEo
+Sonepar-POD-Valide-MailFlow:true
+X-Proofpoint-Virus-Version:vendor=baseguard engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.28.16 definitions=2024-07-30_04,2024-07-26_01,2024-05-17_01
+X-Proofpoint-Spam-Details:rule=au_nz_inbound_notspam policy=au_nz_inbound score=0 impostorscore=0 phishscore=0 adultscore=0 lowpriorityscore=0 clxscore=230 mlxlogscore=250 spamscore=0 priorityscore=398 mlxscore=0 bulkscore=0 unknownsenderscore=20 suspectscore=0 malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2407110000 definitions=main-2407300028 domainage_hfrom=10579
+Return-Path:michealben796@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime:30 Jul 2024 03:59:34.9888 (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason:OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval:1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason:OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:41aa43a0-3802-457a-3bd8-08dcb04c0653
+X-EOPAttributedMessage:0
+X-EOPTenantAttributedMessage:687bbaa1-7c7d-4e66-8aa1-4633a953046b:0
+X-MS-Exchange-Organization-MessageDirectionality:Incoming
+X-MS-Exchange-SkipListedInternetSender:ip=[209.85.218.45];domain=mail-ej1-f45.google.com
+X-MS-PublicTrafficType:Email
+X-MS-TrafficTypeDiagnostic:DU2PEPF00028D00:EE_|VI0PR05MB11114:EE_|VI1PR05MB5981:EE_
+X-MS-Exchange-Organization-AuthSource:DU2PEPF00028D00.eurprd03.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs:Anonymous
+X-MS-Office365-Filtering-Correlation-Id:41aa43a0-3802-457a-3bd8-08dcb04c0653
+X-MS-Exchange-AtpMessageProperties:SA|SL
+X-MS-Exchange-Organization-BypassClutter:True
+X-MS-Exchange-Organization-SCL:-1
+X-Microsoft-Antispam:BCL:0;ARA:13230040|7093399012|82310400026;
+X-Forefront-Antispam-Report:CIP:185.183.28.235;CTRY:NL;LANG:en;SCL:-1;SRV:;IPV:NLI;SFV:NSPM;H:mx08-00377f01.pphosted.com;PTR:mx08-00377f01.pphosted.com;CAT:NONE;SFS:(13230040)(7093399012)(82310400026);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime:30 Jul 2024 03:59:34.8638 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id:41aa43a0-3802-457a-3bd8-08dcb04c0653
+X-MS-Exchange-CrossTenant-Id:687bbaa1-7c7d-4e66-8aa1-4633a953046b
+X-MS-Exchange-CrossTenant-AuthSource:DU2PEPF00028D00.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs:Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader:Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped:VI0PR05MB11114
+X-MS-Exchange-Transport-EndToEndLatency:00:00:09.0865580
+X-MS-Exchange-Processed-By-BccFoldering:15.20.7807.009
+X-Microsoft-Antispam-Mailbox-Delivery:ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info: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

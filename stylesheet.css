@@ -1,0 +1,34 @@
+.table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  grid-row: 3;
+  position: relative;
+}
+body {
+  margin: 0;
+}
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+#emailheader {
+  left: 50%;
+  transform: translateX(-50%);
+
+
+
+  position: relative;
+  grid-row: 1;
+}
+.submitbutton {
+
+  grid-row: 2;
+}
+.divstruct {
+  position: relative;
+  display: grid;
+  grid-template-rows: 3;
+  grid-template-columns: 1;
+}
