@@ -2,67 +2,28 @@ const submitButton = document.querySelector('.submitbutton')
 const emailHeaderInput = document.querySelector('#emailheader')
 const summaryFromAddress = document.querySelector('.summary-from-address')
 const summaryFromName = document.querySelector('.summary-from-name')
-const summaryToddress = document.querySelector('.summary-to-address')
+const summaryToAddress = document.querySelector('.summary-to-address')
 const summaryToName = document.querySelector('.summary-to-name')
-// import { addressParser } from "postal-mime";
+const summarySubject = document.querySelector('.summary-subject')
+const summaryDate = document.querySelector('.summary-date')
+const summaryTime = document.querySelector('.summary-time')
+const summaryMessageId = document.querySelector('.summary-messageId')
+const summaryReturnPath = document.querySelector('.summary-return-path')
+import PostalMime from './node_modules/postal-mime/src/postal-mime.js';
 
-
-// function getIndicesOf(searchStr, str, caseSensitive) {
-//   var searchStrLen = searchStr.length;
-//   if (searchStrLen == 0) {
-//       return [];
-//   }
-//   var startIndex = 0, index, indices = [];
-//   if (!caseSensitive) {
-//       str = str.toLowerCase();
-//       searchStr = searchStr.toLowerCase();
-//   }
-//   while ((index = str.indexOf(searchStr, startIndex)) > -1) {
-//       indices.push(index);
-//       startIndex = index + searchStrLen;
-//   }
-//   return indices;
-// }
-
-// function grabFrom(header) {
-//   let fromHeaders = [];
-//   let receivedFromIndices = getIndicesOf('Received:from', header, true)
-//   let spaceIndices = getIndicesOf(' ', header, false)
-//   console.log(spaceIndices)
-//   for(let j = 0; j < receivedFromIndices.length; j++) {
-//     for(let i = 0; i < spaceIndices.length; i++) {
-//       let secondSpace = 0;
-//       if (spaceIndices[i] < receivedFromIndices[j]) {
-//         spaceIndices.splice(i, 1)
-//       } else if (spaceIndices[i] > receivedFromIndices[j]) {
-//         secondSpace++;
-//         if (secondSpace === 2) {
-//           return;
-//         } else {
-//           spaceIndices.splice(i, 1);
-//         }
-//       }
-//       console.log(spaceIndices)
-//     }
-//   }
-  
-//   for (let i = 0; i < receivedFromIndices.length; i++) {
-//     fromHeaders.push(header.substring(receivedFromIndices[i], spaceIndices[i + 1]))
-//     console.log(receivedFromIndices)
-//     console.log(spaceIndices)
-//     console.log(header)
-//   }
-
-  
-
-//   return fromHeaders
-// }
+function getPosition(string, subString, index) {
+  return string.split(subString, index).join(subString).length;
+}
 
  submitButton.onclick = async () => {
   const Headers = emailHeaderInput.value
   const email = await PostalMime.parse(Headers)
   console.log(email);
   let ReceivedHeaders = [];
+  let ReceivedFromHeaders = [];
+  let ReceivedByHeaders = [];
+  let ReceivedWithHeaders = [];
+  let ReceivedTimeHeaders = [];
   let AuthenticationResultHeader;
   let AuthenticationResultOriginalHeader;
   let DkimSignature;
@@ -91,14 +52,80 @@ const summaryToName = document.querySelector('.summary-to-name')
         break;
       
     }
-
   }
+
+  for(let i=0; i<ReceivedHeaders.length; i++) {
+    if (ReceivedHeaders[i].indexOf('from') === -1) {
+      break;
+    }
+    let fromDomain = ReceivedHeaders[i].substring(ReceivedHeaders.indexOf('from')+6, getPosition(ReceivedHeaders[i], ' ', 2))
+    ReceivedFromHeaders.push(fromDomain)
+  }
+  for(let i=0; i<ReceivedHeaders.length; i++) {
+    if (ReceivedHeaders[i].indexOf('by') === -1) {
+      break;
+    }
+    let ReceivedByHeadersUnfinished = ReceivedHeaders[i].substring(ReceivedHeaders[i].indexOf('by'), ReceivedHeaders[i].length);
+
+    
+    let byDomain = ReceivedByHeadersUnfinished.substring(ReceivedByHeadersUnfinished.indexOf('by')+3, getPosition(ReceivedByHeadersUnfinished, ' ', 2));
+    ReceivedByHeaders.push(byDomain);
+  }
+
+  for(let i=0; i<ReceivedHeaders.length; i++) {
+    if (ReceivedHeaders[i].indexOf('with') === -1) {
+      break;
+    }
+    let ReceivedWithHeadersUnfinished = ReceivedHeaders[i].substring(ReceivedHeaders[i].indexOf('with'), ReceivedHeaders[i].length);
+    let withProtocol;
+    if(ReceivedWithHeadersUnfinished.includes(' SMTP ')) {
+      withProtocol = 'SMTP'
+    } else if (ReceivedWithHeadersUnfinished.includes(' ESMTPS ')) {
+      withProtocol = 'ESMTPS'
+    } else if (ReceivedWithHeadersUnfinished.includes(' ESMTP ')) {
+      withProtocol = 'ESMTP'
+    } else if (ReceivedWithHeadersUnfinished.includes(' HTTPS;') || ReceivedWithHeadersUnfinished.includes(' HTTPS ')) {
+      withProtocol = 'HTTPS'
+    } else if (ReceivedWithHeadersUnfinished.includes(' HTTP;') || ReceivedWithHeadersUnfinished.includes(' HTTP ')){
+      withProtocol = 'HTTP'
+    } else {
+      withProtocol = 'OTHER'
+    }
+    ReceivedWithHeaders.push(withProtocol);
+  }
+
+  for(let i=0; i<ReceivedHeaders.length; i++) {
+    if (ReceivedHeaders[i].indexOf(':') === -1) {
+      break;
+    }
+    ReceivedTimeHeaders.push(ReceivedHeaders[i])
+  }
+  
+  ReceivedFromHeaders = ReceivedFromHeaders.reverse()
+  ReceivedByHeaders = ReceivedByHeaders.reverse()
+  ReceivedWithHeaders = ReceivedWithHeaders.reverse()
+  console.log(ReceivedFromHeaders)
+  console.log(ReceivedByHeaders)
+  console.log(ReceivedWithHeaders)
   summaryFromAddress.innerHTML = Summary.from.address
   summaryFromName.innerHTML = Summary.from.name
-  summaryToAddress.innerHTML = Summary.to.address
-  summaryToName.innerHTML = Summary.to.name
-  console.log(Summary)
-  console.log(ReceivedHeaders)
+  summaryToAddress.innerHTML = Summary.to[0].address
+  summaryToName.innerHTML = Summary.to[0].name
+  summarySubject.innerHTML = Summary.subject
+  let dateFunction = new Date(Summary.date);
+  let year = dateFunction.getFullYear();
+  let month = dateFunction.getMonth();
+  let date = dateFunction.getDate();
+  let hour = dateFunction.getHours();
+  let min = dateFunction.getMinutes();
+  let sec = dateFunction.getSeconds();
+  if (hour < 10) { hour = '0' + hour.toString() }
+  if (min < 10) { min = '0' + min.toString() }
+  if (sec < 10) { sec = '0' + sec.toString() }
+  summaryDate.innerHTML = dateFunction.toDateString() + ` ${date}/${month}/${year}`
+  summaryTime.innerHTML = `${hour}:${min}:${sec}`
+  summaryMessageId.textContent = Summary.message_id
+  summaryReturnPath.innerHTML = Summary.return_path
 }
-import PostalMime from './node_modules/postal-mime/src/postal-mime.js';
+
 
