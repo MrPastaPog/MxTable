@@ -1,0 +1,73 @@
+Received: from GVXPR05MB11120.eurprd05.prod.outlook.com
+ (2603:10a6:150:149::20) by AS4PR05MB9421.eurprd05.prod.outlook.com with
+ HTTPS; Mon, 5 Aug 2024 04:38:41 +0000
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=lh.com.au;
+Received: from DB9PR05MB7740.eurprd05.prod.outlook.com (2603:10a6:10:21c::14)
+ by GVXPR05MB11120.eurprd05.prod.outlook.com (2603:10a6:150:149::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7828.25; Mon, 5 Aug
+ 2024 04:38:39 +0000
+Received: from DB9PR05MB7740.eurprd05.prod.outlook.com
+ ([fe80::39c0:7518:8f4c:983b]) by DB9PR05MB7740.eurprd05.prod.outlook.com
+ ([fe80::39c0:7518:8f4c:983b%5]) with mapi id 15.20.7828.023; Mon, 5 Aug 2024
+ 04:38:38 +0000
+Content-Type: application/ms-tnef; name="winmail.dat"
+Content-Transfer-Encoding: binary
+From: SVENSSON Martin <martin.svensson@lh.com.au>
+To: SETTE Bruno <bruno.sette@lh.com.au>
+Subject: test email
+Thread-Topic: test email
+Thread-Index: AQHa5vFX0Z3cIkxONk2+980fBqZzjw==
+Date: Mon, 5 Aug 2024 04:38:38 +0000
+Message-ID:
+ <DB9PR05MB774071C611680CC5694A1FC8A7BE2@DB9PR05MB7740.eurprd05.prod.outlook.com>
+Accept-Language: en-AU, en-US
+Content-Language: en-AU
+X-MS-Exchange-Organization-ModifySensitivityLabel:
+ 00000000-0000-0000-0000-000000000000;11cd3d94-6a49-4d6b-9c8b-f95b82a4b992
+X-MS-Has-Attach: yes
+X-MS-Exchange-Organization-SCL: 1
+X-MS-TNEF-Correlator:
+ <DB9PR05MB774071C611680CC5694A1FC8A7BE2@DB9PR05MB7740.eurprd05.prod.outlook.com>
+msip_labels:
+ MSIP_Label_11cd3d94-6a49-4d6b-9c8b-f95b82a4b992_Enabled=True;MSIP_Label_11cd3d94-6a49-4d6b-9c8b-f95b82a4b992_SiteId=687bbaa1-7c7d-4e66-8aa1-4633a953046b;MSIP_Label_11cd3d94-6a49-4d6b-9c8b-f95b82a4b992_SetDate=2024-08-05T04:38:38.138Z;MSIP_Label_11cd3d94-6a49-4d6b-9c8b-f95b82a4b992_Name=C1
+ - Business
+ use;MSIP_Label_11cd3d94-6a49-4d6b-9c8b-f95b82a4b992_ContentBits=0;MSIP_Label_11cd3d94-6a49-4d6b-9c8b-f95b82a4b992_Method=Standard;
+MIME-Version: 1.0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-Organization-AuthSource: DB9PR05MB7740.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-Network-Message-Id:
+ 597ddf7d-8099-4864-e1c0-08dcb50879aa
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ DB9PR05MB7740:EE_|GVXPR05MB11120:EE_|AS4PR05MB9421:EE_
+Return-Path: martin.svensson@lh.com.au
+X-MS-Exchange-Organization-ExpirationStartTime: 05 Aug 2024 04:38:39.4593
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Office365-Filtering-Correlation-Id: 597ddf7d-8099-4864-e1c0-08dcb50879aa
+Sonepar-Disclaimer-Applied: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|41050700001;
+X-Forefront-Antispam-Report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR05MB7740.eurprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(41050700001);DIR:INT;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2024 04:38:38.4448
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 687bbaa1-7c7d-4e66-8aa1-4633a953046b
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR05MB7740.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-Network-Message-Id: 597ddf7d-8099-4864-e1c0-08dcb50879aa
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: npEux9DwfC621HjDByO4VmmxxUrOvQpx/vPEQbPSUXJT3AycUQ3az1lMnIU8jkVd1s/mBUOoMsUPtHyd93cM8YPdsZr3n5FqPwjcRqPXztc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR05MB11120
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.5779187
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7828.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(425001)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	GpOu6h3HUO/RvflWxOfohEV08gqcEa9s1leC9AW0w249voW9lY5kAxzINkykAIfF0oFp3iuibgSiw31/AYu04RdCC9kVLmW0e0rMTihtoDW5kIjlFnLcH3ACXEvVNQRBN6Vi1CgdAaFV8vMasCbgP2N18FQdIUKt9J41sQ+/Tglzfg9KlCkEmztJP1kntR8RqBgv24KYib6W2+YlFnD/jeBmv3+iASOuhrMUWqahp87aDHcee9TYmYFD8cIBfLyK1RT0Sm94LkEhL54Zwssg5fFcjx13eaQv17PgkFJ+WutELDsNKCuJamd5cNt2HLn5ds9IzhwZXWCrJTlQnMukrmNHnkCRSyrNYxj5pFJsc7zmiVj0K+7EOQm4jN3/cQDg/YdarygYK5dEcjqqYpWhsFOcOt9ZwMpggkUjpD19+TX86jyvi9q3+FWqO8w+ayeEioyU4xcOCbJkH2QAcfu4sIbnqd+uNkio6OJxE32IniKSA2TnkCiEsg/0RXDmik6T2LAUPrwuU9rAw2nAiudsmMR7NCd9WLJ8khNd7p7SYNoeEeH1izWB7ujLaQkED2xO9TvdpvAKelfWBzd6IugxaDWNAh+nXV8vyZ5TcbIeZIwWqvBYsbsta7ZvR1pSDwwA4oXblfYriFIp+3MNLt6A6K3g+Q1advdW42q6hB43bSBcrvlyOTC8PApoGm492wHCoQqgiglDeAgSUMX0zil+rE8RtUM6pPJc76dU2uzeHp3LPue9g4ukN0MBtxsg9/1w92IQPQ/PsTuk4n1Z0RpiJdQvquJ9bXotYEVTuk9CB66GA71aepaMkh8kcnHxElgteFaS0FuH0GXLipb38Qxt6g==

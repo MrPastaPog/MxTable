@@ -5,6 +5,13 @@
   grid-row: 4;
   position: relative;
 }
+.authentication {
+  grid-row: 5;
+  width: 100%;
+  border-collapse: collapse;
+  font-family: arial, sans-serif;
+  position: relative;
+}
 .summary {
   width: 100%;
   position: relative;
@@ -23,8 +30,6 @@ td, th {
 #emailheader {
   left: 50%;
   transform: translateX(-50%);
-
-
 
   position: relative;
   grid-row: 1;
